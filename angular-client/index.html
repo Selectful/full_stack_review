@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bringing Blockbuster Back</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" src="styles.css">
+    <!--<script src="../node_modules/angular/angular.js"></script>-->
+  </head>
+
+  <body>
+    <br><br>
+    <div class="container" ng-app="blockbusterApp" ng-controller="blockbusterCtrl">
+      <div class="col-md-4">
+        <button type="button" class="btn btn-default" ng-click="getMovies()">GET ALL MOVIES</button>
+        <button type="button" class="btn btn-default" ng-click="showForm()" style="float:right">ADD MOVIE</button>
+        <br><br><br>
+        <form class="form-inline" ng-show="showFormBool">
+          <div class="form-group">
+            <label>Title:</label>
+            <input class="form-control" style="margin-left:70px" ng-model="title">
+          </div>
+          <br><br>
+          <div class="form-group">
+            <label>Num of Copies:</label>
+            <input class="form-control" ng-model="copies">
+          </div>
+          <br><br>
+          <div class="form-group">
+            <label>IMDB Rating:</label>
+            <input class="form-control" style="margin-left:17px" ng-model="rating">
+          </div>
+          <br><br>
+          <button type="submit" class="btn btn-default" style="float:right" ng-click="addMovie(movie)">Add</button>
+      </form>
+      </div>
+      <div class="col-md-8">
+        <div class="movies rounded well" ng-repeat="movie in movies">
+          <h5>Title: {{movie.title}}</h5>
+          <h5>IMDB Rating: {{movie.IMDB_Rating}}</h5>
+          <h5>Copies in Stock: {{movie.numOfCopies}}</h5>
+          <br>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
